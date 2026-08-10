@@ -31,11 +31,11 @@ result_bmi = round(bmi, 2)
 
 # константы для расчета рекомендуемой нормы воды
 WATER_PER_KG = 30  # количество воды в мл на кг веса
-WATER_L_PER_DAY = 1000  # количество воды в литрах на день
+ML_PER_LITER = 1000  # количество воды в литрах на день
 
 # расчет рекомендуемой нормы воды в день и перевод в литры
 water_ml = user_weight * WATER_PER_KG
-water_l = water_ml / WATER_L_PER_DAY
+water_l = water_ml / ML_PER_LITER
 result_water = round(water_l, 2)
 
 # вывод результатов
