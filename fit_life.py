@@ -14,7 +14,7 @@ while True:
     except ValueError:
         attempts += 1
         if attempts >= 2:
-            print("Вы ввели некорректный возраст несколько раз. Пожалуйста, перезапустите программу и попробуйте снова.")
+            print("Программа завершена из-за некорректного ввода возраста.")
             raise SystemExit(1)
         print("Пожалуйста, введите корректный возраст в виде числа.")
 print(f"Отлично, {user_name}! Приятно познакомиться!")
@@ -45,6 +45,10 @@ water_l = water_ml / ML_PER_LITER
 result_water = round(water_l, 2)
 
 # вывод результатов
-print(f"Отчет для пользователя {user_name} ({user_age} лет):", f"Ваш вес : {user_weight} кг, ваш рост : {user_height} м.", 
-    f"Ваш Индекс Массы Тела : {result_bmi:.1f}", f"Рекомендуемая норма воды : {result_water:.1f} л/день.", sep="\n")
+print(
+    f"Отчет для пользователя {user_name} ({user_age} лет):",
+    f"Ваш вес : {user_weight} кг, ваш рост : {user_height} м.",
+    f"Ваш Индекс Массы Тела : {result_bmi:.1f}",
+    f"Рекомендуемая норма воды : {result_water:.1f} л/день.",
+    sep="\n")
 print("Расчет окончен. Будьте здоровы!")
