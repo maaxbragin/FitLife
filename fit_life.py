@@ -6,12 +6,18 @@ user_name = input("Подскажите пожалуйста ваше имя: ")
 user_name = user_name.title()
 
 # получение возраста пользователя с обработкой возможноых ошибок ввода
-try:
-    user_age = int(input("Сколько вам лет? "))
-    print(f"Отлично, {user_name}! Приятно познакомиться!")
-except ValueError:
-    print("Пожалуйста, введите корректный возраст в виде числа.")
-    user_age = int(input("Сколько вам лет? "))
+attempts = 0
+while True:
+    try:
+        user_age = int(input("Сколько вам лет? "))
+        break
+    except ValueError:
+        attempts += 1
+        if attempts >= 2:
+            print("Вы ввели некорректный возраст несколько раз. Пожалуйста, перезапустите программу и попробуйте снова.")
+            raise SystemExit(1)
+        print("Пожалуйста, введите корректный возраст в виде числа.")
+print(f"Отлично, {user_name}! Приятно познакомиться!")
 
 # получаем от пользователя вес и рост
 try:
@@ -39,8 +45,6 @@ water_l = water_ml / ML_PER_LITER
 result_water = round(water_l, 2)
 
 # вывод результатов
-print(f"Отчет для пользователя {user_name} ({user_age} лет):")
-print(f"Ваш вес : {user_weight} кг, ваш рост : {user_height} м.")
-print(f"Ваш Индекс Массы Тела : {result_bmi}")
-print(f"Рекомендуемая норма воды : {result_water} л/день.")
+print(f"Отчет для пользователя {user_name} ({user_age} лет):", f"Ваш вес : {user_weight} кг, ваш рост : {user_height} м.", 
+    f"Ваш Индекс Массы Тела : {result_bmi:.1f}", f"Рекомендуемая норма воды : {result_water:.1f} л/день.", sep="\n")
 print("Расчет окончен. Будьте здоровы!")
